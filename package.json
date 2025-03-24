@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "npx tailwindcss -i ./themes/brandguide/assets/css/main.css -o ./themes/brandguide/assets/css/style.css",
-    "build:css": "tailwindcss -i ./themes/brandguide/assets/css/main.css -o ./themes/brandguide/assets/css/style.css",
-    "watch:css": "tailwindcss -i ./themes/brandguide/assets/css/main.css -o ./themes/brandguide/assets/css/style.css --watch"
+    "build:css": "npx tailwindcss -i ./themes/brandguide/static/css/main.css -o ./themes/brandguide/static/css/main.css",
+    "watch:css": "tailwindcss -i ./themes/brandguide/static/css/main.css -o ./themes/brandguide/static/css/main.css --watch"
   },
   "keywords": [],
   "author": "",

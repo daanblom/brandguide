@@ -32,4 +32,26 @@
   .color-value {
     @apply text-xs text-gray-500 dark:text-gray-400;
   }
+
+  /* Sidebar Navigation Styles */
+  .sidebar {
+    @apply w-64 min-h-screen bg-gray-900 p-4 fixed left-0 top-0;
+  }
+
+  .sidebar-nav {
+    @apply space-y-2;
+  }
+
+  .sidebar-title {
+    @apply text-xl font-bold text-white mb-6;
+  }
+
+  .nav-link {
+    @apply block text-gray-300 hover:text-white py-2 transition-colors duration-200;
+  }
+
+  /* Main content positioning to account for sidebar */
+  .main-content {
+    @apply ml-64 p-8;
+  }
 }
