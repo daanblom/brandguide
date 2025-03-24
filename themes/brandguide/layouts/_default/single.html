@@ -1,14 +1,25 @@
 {{ define "main" }}
-<article class="prose dark:prose-invert max-w-none">
+<article class="section">
     <header class="mb-8">
-        <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
+        <h1 class="section-title">{{ .Title }}</h1>
         {{ if .Description }}
-        <p class="text-xl text-gray-600 dark:text-gray-400">{{ .Description }}</p>
+        <p class="text-lg text-gray-600 dark:text-gray-400">{{ .Description }}</p>
         {{ end }}
     </header>
 
-    <div class="content">
+    <div class="prose dark:prose-invert max-w-none">
         {{ .Content }}
     </div>
+
+    {{ if .Params.quick_links }}
+    <div class="quick-links mt-8">
+        <h2 class="text-xl font-semibold mb-4">Quick Links</h2>
+        <ul class="space-y-2">
+            {{ range .Params.quick_links }}
+            <li><a href="{{ .url }}" class="quick-link">{{ .title }}</a></li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
 </article>
 {{ end }}

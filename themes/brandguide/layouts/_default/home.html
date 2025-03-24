@@ -1,7 +1,18 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
+<div class="section">
+  <div class="prose dark:prose-invert max-w-none">
+    {{ .Content }}
+  </div>
+  
+  {{ if .Pages }}
+  <div class="mt-12 space-y-8">
+    {{ range .Pages }}
+    <article class="post">
+      <h2 class="post-title"><a href="{{ .RelPermalink }}" class="hover:text-primary-600 dark:hover:text-primary-400">{{ .LinkTitle }}</a></h2>
+      <div class="text-gray-600 dark:text-gray-400">{{ .Summary }}</div>
+    </article>
+    {{ end }}
+  </div>
   {{ end }}
+</div>
 {{ end }}

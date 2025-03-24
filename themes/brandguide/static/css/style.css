@@ -6,6 +6,22 @@
   body {
     @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
   }
+  
+  h1 {
+    @apply text-3xl font-bold mb-6;
+  }
+  
+  h2 {
+    @apply text-2xl font-semibold mb-4 mt-8;
+  }
+  
+  h3 {
+    @apply text-xl font-semibold mb-3 mt-6;
+  }
+  
+  p {
+    @apply mb-4 leading-relaxed;
+  }
 }
 
 @layer components {
@@ -50,8 +66,63 @@
     @apply block text-gray-300 hover:text-white py-2 transition-colors duration-200;
   }
 
-  /* Main content positioning to account for sidebar */
+  /* Main content positioning and styling */
   .main-content {
-    @apply ml-64 p-8;
+    @apply ml-64 p-8 max-w-4xl;
+  }
+
+  /* Quick Links Section */
+  .quick-links {
+    @apply mt-6 space-y-2;
+  }
+
+  .quick-link {
+    @apply text-primary-600 dark:text-primary-400 hover:underline;
+  }
+
+  /* Section Styling */
+  .section {
+    @apply mb-12;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold mb-4 text-gray-900 dark:text-white;
+  }
+
+  /* Best Practices List */
+  .best-practices {
+    @apply space-y-3 mt-6;
+  }
+
+  .best-practices-item {
+    @apply flex items-start space-x-3;
+  }
+
+  /* Post Styling */
+  .post {
+    @apply border-t border-gray-200 dark:border-gray-700 py-6;
+  }
+
+  .post-title {
+    @apply text-xl font-semibold mb-3;
+  }
+
+  /* Getting Started Section */
+  .getting-started {
+    @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-6 my-8;
+  }
+
+  .getting-started-item {
+    @apply mb-4 last:mb-0;
+  }
+
+  /* Need Help Section */
+  .help-section {
+    @apply bg-primary-50 dark:bg-gray-800 rounded-lg p-6 my-8;
+  }
+
+  /* Stay Updated Section */
+  .stay-updated {
+    @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mt-8;
   }
 }
