@@ -126,3 +126,15 @@
     @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mt-8;
   }
 }
+
+.left-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto; /* In case the menu content is longer than viewport */
+}
+
+.main-content {
+  margin-left: 200px; /* Add appropriate margin to prevent content overlap */
+}
