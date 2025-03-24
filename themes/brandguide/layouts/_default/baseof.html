@@ -6,36 +6,14 @@
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
     {{- partial "head.html" . -}}
 </head>
-<body class="h-full" style="background-color: var(--color-background); color: var(--color-text);">
+<body class="h-full p-8" style="background-color: var(--color-background); color: var(--color-text);">
     <div class="flex">
-        <!-- Sidebar -->
-        <aside class="w-64 flex-shrink-0" style="background-color: var(--color-background); border-right: 1px solid var(--color-gray-200);">
-            <div class="flex flex-col h-full fixed">
-                <div class="flex items-center h-16 px-4" style="border-bottom: 1px solid var(--color-gray-200);">
-                    <h1 class="text-xl font-bold" style="color: var(--color-text);">{{ .Site.Title }}</h1>
-                </div>
-                <nav class="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
-                    {{ $currentPage := . }}
-                    {{ range .Site.Menus.main }}
-                        <a href="{{ .URL }}" class="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200" 
-                           style="color: var(--color-gray-700); {{ if $currentPage.IsMenuCurrent "main" . }}background-color: var(--color-gray-100);{{ end }}">
-                            {{ .Name }}
-                        </a>
-                    {{ end }}
-                </nav>
-                <div class="p-4" style="border-top: 1px solid var(--color-gray-200);">
-                    <button id="theme-toggle" class="w-full px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200"
-                            style="color: var(--color-text); background-color: var(--color-gray-100);">
-                        <span class="dark:hidden">Dark Mode</span>
-                        <span class="hidden dark:inline">Light Mode</span>
-                    </button>
-                </div>
-            </div>
-        </aside>
+        <!-- Include the sidebar partial -->
+        {{- partial "sidebar.html" . -}}
 
         <!-- Main content -->
         <div class="flex-1 flex flex-col min-h-screen">
-            <main class="flex-1 py-8">
+            <main class="flex-1 p-8">
                 <div class="px-8 mx-auto max-w-2xl" style="padding-left: 40px; padding-right: 40px;">
                     {{ block "main" . }}{{ end }}
                 </div>
@@ -49,7 +27,15 @@
     <script>
         // Theme toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
+        const lightText = document.getElementById('theme-toggle-light');
+        const darkText = document.getElementById('theme-toggle-dark');
         const html = document.documentElement;
+        
+        function updateThemeDisplay() {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            lightText.classList.toggle('hidden', isDark);
+            darkText.classList.toggle('hidden', !isDark);
+        }
         
         // Check for saved theme preference
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -57,7 +43,10 @@
         } else {
             html.removeAttribute('data-theme');
         }
-
+        
+        // Update initial display
+        updateThemeDisplay();
+        
         themeToggle.addEventListener('click', () => {
             if (html.getAttribute('data-theme') === 'dark') {
                 html.removeAttribute('data-theme');
@@ -66,6 +55,7 @@
                 html.setAttribute('data-theme', 'dark');
                 localStorage.theme = 'dark';
             }
+            updateThemeDisplay();
         });
     </script>
     {{ block "scripts" . }}{{ end }}

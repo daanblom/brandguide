@@ -38,6 +38,8 @@
   --color-gray-900: #f9fafb;
 }
 
+
+
 @font-face {
   font-family: 'OpenSauceOne';
   src: url('../fonts/OpenSauceOne-Regular.ttf') format('truetype');
@@ -86,135 +88,6 @@
     @apply mb-4 leading-relaxed;
     font-family: 'OpenSauceOne', sans-serif;
   }
-}
-
-@layer components {
-  .sidebar-link {
-    @apply block px-4 py-2 text-sm rounded-md transition-colors duration-200;
-    color: var(--color-gray-700);
-    background-color: transparent;
-  }
-  
-  .sidebar-link:hover {
-    background-color: var(--color-gray-100);
-  }
-  
-  .sidebar-link.active {
-    background-color: var(--color-gray-100);
-    color: var(--color-primary);
-  }
-
-  .color-card {
-    @apply rounded-lg p-4 shadow-sm;
-    border: 1px solid var(--color-gray-200);
-  }
-
-  .color-swatch {
-    @apply w-full h-24 rounded-md mb-2;
-  }
-
-  .color-info {
-    @apply text-sm font-medium;
-  }
-
-  .color-value {
-    @apply text-xs;
-    color: var(--color-gray-500);
-  }
-
-  /* Sidebar Navigation Styles */
-  .sidebar {
-    @apply w-64 min-h-screen p-4 fixed left-0 top-0;
-    background-color: var(--color-gray-900);
-  }
-
-  .sidebar-nav {
-    @apply space-y-2;
-  }
-
-  .sidebar-title {
-    @apply text-xl font-bold mb-6;
-    color: var(--color-gray-100);
-  }
-
-  .nav-link {
-    @apply block py-2 transition-colors duration-200;
-    color: var(--color-gray-300);
-  }
-
-  .nav-link:hover {
-    color: var(--color-gray-100);
-  }
-
-  /* Main content positioning and styling */
-  .main-content {
-    @apply ml-64 p-8 max-w-4xl;
-  }
-
-  /* Quick Links Section */
-  .quick-links {
-    @apply mt-6 space-y-2;
-  }
-
-  .quick-link {
-    color: var(--color-primary);
-  }
-
-  .quick-link:hover {
-    text-decoration: underline;
-  }
-
-  /* Section Styling */
-  .section {
-    @apply mb-12;
-  }
-
-  .section-title {
-    @apply text-2xl font-bold mb-4;
-    color: var(--color-text);
-  }
-
-  /* Best Practices List */
-  .best-practices {
-    @apply space-y-3 mt-6;
-  }
-
-  .best-practices-item {
-    @apply flex items-start space-x-3;
-  }
-
-  /* Post Styling */
-  .post {
-    @apply py-6;
-    border-top: 1px solid var(--color-gray-200);
-  }
-
-  .post-title {
-    @apply text-xl font-semibold mb-3;
-  }
-
-  /* Getting Started Section */
-  .getting-started {
-    @apply rounded-lg p-6 my-8;
-    background-color: var(--color-gray-100);
-  }
-
-  .getting-started-item {
-    @apply mb-4 last:mb-0;
-  }
-
-  /* Need Help Section */
-  .help-section {
-    @apply rounded-lg p-6 my-8;
-    background-color: var(--color-gray-100);
-  }
-
-  /* Stay Updated Section */
-  .stay-updated {
-    @apply rounded-lg p-6 mt-8;
-    background-color: var(--color-gray-100);
-  }
-}
 
 .left-menu {
   position: fixed;
@@ -226,4 +99,18 @@
 
 .main-content {
   margin-left: 200px;
+}
+}
+
+@layer components {
+  .sidebar-link {
+    @apply px-4 py-2 rounded-lg transition-colors duration-200;
+    @apply text-gray-300 hover:text-white hover:bg-gray-800;
+    @apply block w-full text-lg;
+    font-family: 'OpenSauceOne', sans-serif;
+  }
+
+  .sidebar-link.active {
+    @apply bg-gray-800 text-white;
+  }
 }
