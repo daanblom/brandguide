@@ -3,11 +3,11 @@
     <header class="mb-8">
         <h1 class="section-title">{{ .Title }}</h1>
         {{ if .Description }}
-        <p class="text-lg text-gray-600 dark:text-gray-400">{{ .Description }}</p>
+        <p class="text-lg" style="color: var(--color-gray-600);">{{ .Description }}</p>
         {{ end }}
     </header>
 
-    <div class="prose dark:prose-invert max-w-none">
+    <div class="prose max-w-none">
         {{ .Content }}
     </div>
 

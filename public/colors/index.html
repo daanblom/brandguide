@@ -13,44 +13,51 @@
     <link rel="favicon" href="/favicon.ico">
 </head>
 </head>
-<body class="h-full bg-white dark:bg-gray-900">
+<body class="h-full" style="background-color: var(--color-background); color: var(--color-text);">
     <div class="flex">
         
-        <aside class="w-64 flex-shrink-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
+        <aside class="w-64 flex-shrink-0" style="background-color: var(--color-background); border-right: 1px solid var(--color-gray-200);">
             <div class="flex flex-col h-full fixed">
-                <div class="flex items-center h-16 px-4 border-b border-gray-200 dark:border-gray-700">
-                    <h1 class="text-xl font-bold text-gray-900 dark:text-white">Brand Guidelines</h1>
+                <div class="flex items-center h-16 px-4" style="border-bottom: 1px solid var(--color-gray-200);">
+                    <h1 class="text-xl font-bold" style="color: var(--color-text);">Brand Guidelines</h1>
                 </div>
                 <nav class="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
                     
                     
-                        <a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 ">
+                        <a href="/" class="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200" 
+                           style="color: var(--color-gray-700); ">
                             Home
                         </a>
                     
-                        <a href="/colors/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 ">
+                        <a href="/colors/" class="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200" 
+                           style="color: var(--color-gray-700); ">
                             Colors
                         </a>
                     
-                        <a href="/typography/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 ">
+                        <a href="/typography/" class="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200" 
+                           style="color: var(--color-gray-700); ">
                             Typography
                         </a>
                     
-                        <a href="/logo/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 ">
+                        <a href="/logo/" class="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200" 
+                           style="color: var(--color-gray-700); ">
                             Logo
                         </a>
                     
-                        <a href="/imagery/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 ">
+                        <a href="/imagery/" class="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200" 
+                           style="color: var(--color-gray-700); ">
                             Imagery
                         </a>
                     
-                        <a href="/icons/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 ">
+                        <a href="/icons/" class="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200" 
+                           style="color: var(--color-gray-700); ">
                             Icons
                         </a>
                     
                 </nav>
-                <div class="p-4 border-t border-gray-200 dark:border-gray-700">
-                    <button id="theme-toggle" class="w-full px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+                <div class="p-4" style="border-top: 1px solid var(--color-gray-200);">
+                    <button id="theme-toggle" class="w-full px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200"
+                            style="color: var(--color-text); background-color: var(--color-gray-100);">
                         <span class="dark:hidden">Dark Mode</span>
                         <span class="hidden dark:inline">Light Mode</span>
                     </button>
@@ -66,7 +73,7 @@
 <div class="section">
   <h1 class="section-title">Colors</h1>
   
-  <div class="prose dark:prose-invert max-w-none mb-8">
+  <div class="prose max-w-none mb-8">
     <h1 id="brand-colors">Brand Colors</h1>
 <p>Our color palette is carefully selected to represent our brand identity and ensure consistency across all touchpoints.</p>
 <h2 id="primary-colors">Primary Colors</h2>
@@ -152,7 +159,7 @@
 
                 </div>
             </main>
-            <footer class="px-8 py-6 text-center text-sm text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700"><p>Copyright 2025. All rights reserved.</p>
+            <footer class="px-8 py-6 text-center text-sm border-t" style="color: var(--color-gray-600); border-color: var(--color-gray-200);"><p>Copyright 2025. All rights reserved.</p>
 </footer>
         </div>
     </div>
@@ -164,17 +171,17 @@
         
         
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            html.classList.add('dark');
+            html.setAttribute('data-theme', 'dark');
         } else {
-            html.classList.remove('dark');
+            html.removeAttribute('data-theme');
         }
 
         themeToggle.addEventListener('click', () => {
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
                 localStorage.theme = 'light';
             } else {
-                html.classList.add('dark');
+                html.setAttribute('data-theme', 'dark');
                 localStorage.theme = 'dark';
             }
         });

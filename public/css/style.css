@@ -2,39 +2,111 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Light mode colors */
+  --color-background: #fffae2;
+  --color-text: #050a00;
+  --color-primary: #3b82f6;
+  --color-primary-light: #60a5fa;
+  --color-primary-dark: #2563eb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+}
+
+[data-theme="dark"] {
+  /* Dark mode colors */
+  --color-background: #002300;
+  --color-text: #fffae2;
+  --color-primary: #60a5fa;
+  --color-primary-light: #93c5fd;
+  --color-primary-dark: #3b82f6;
+  --color-gray-100: #1f2937;
+  --color-gray-200: #374151;
+  --color-gray-300: #4b5563;
+  --color-gray-400: #6b7280;
+  --color-gray-500: #9ca3af;
+  --color-gray-600: #d1d5db;
+  --color-gray-700: #e5e7eb;
+  --color-gray-800: #f3f4f6;
+  --color-gray-900: #f9fafb;
+}
+
+@font-face {
+  font-family: 'OpenSauceOne';
+  src: url('../fonts/OpenSauceOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSauceOne';
+  src: url('../fonts/OpenSauceOne-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'OpenSauceOne';
+  src: url('../fonts/OpenSauceOne-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
 @layer base {
   body {
     @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+    font-family: 'OpenSauceOne', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
   }
   
   h1 {
-    @apply text-3xl font-bold mb-6;
+    @apply text-3xl mb-6;
+    font-family: 'OpenSauceOne', sans-serif;
   }
   
   h2 {
-    @apply text-2xl font-semibold mb-4 mt-8;
+    @apply text-2xl mb-4 mt-8;
+    font-family: 'OpenSauceOne', sans-serif;
   }
   
   h3 {
-    @apply text-xl font-semibold mb-3 mt-6;
+    @apply text-xl mb-3 mt-6;
+    font-family: 'OpenSauceOne', sans-serif;
   }
   
   p {
     @apply mb-4 leading-relaxed;
+    font-family: 'OpenSauceOne', sans-serif;
   }
 }
 
 @layer components {
   .sidebar-link {
-    @apply block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors duration-200;
+    @apply block px-4 py-2 text-sm rounded-md transition-colors duration-200;
+    color: var(--color-gray-700);
+    background-color: transparent;
+  }
+  
+  .sidebar-link:hover {
+    background-color: var(--color-gray-100);
   }
   
   .sidebar-link.active {
-    @apply bg-gray-100 dark:bg-gray-800 text-primary-600 dark:text-primary-400;
+    background-color: var(--color-gray-100);
+    color: var(--color-primary);
   }
 
   .color-card {
-    @apply rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700;
+    @apply rounded-lg p-4 shadow-sm;
+    border: 1px solid var(--color-gray-200);
   }
 
   .color-swatch {
@@ -46,12 +118,14 @@
   }
 
   .color-value {
-    @apply text-xs text-gray-500 dark:text-gray-400;
+    @apply text-xs;
+    color: var(--color-gray-500);
   }
 
   /* Sidebar Navigation Styles */
   .sidebar {
-    @apply w-64 min-h-screen bg-gray-900 p-4 fixed left-0 top-0;
+    @apply w-64 min-h-screen p-4 fixed left-0 top-0;
+    background-color: var(--color-gray-900);
   }
 
   .sidebar-nav {
@@ -59,11 +133,17 @@
   }
 
   .sidebar-title {
-    @apply text-xl font-bold text-white mb-6;
+    @apply text-xl font-bold mb-6;
+    color: var(--color-gray-100);
   }
 
   .nav-link {
-    @apply block text-gray-300 hover:text-white py-2 transition-colors duration-200;
+    @apply block py-2 transition-colors duration-200;
+    color: var(--color-gray-300);
+  }
+
+  .nav-link:hover {
+    color: var(--color-gray-100);
   }
 
   /* Main content positioning and styling */
@@ -77,7 +157,11 @@
   }
 
   .quick-link {
-    @apply text-primary-600 dark:text-primary-400 hover:underline;
+    color: var(--color-primary);
+  }
+
+  .quick-link:hover {
+    text-decoration: underline;
   }
 
   /* Section Styling */
@@ -86,7 +170,8 @@
   }
 
   .section-title {
-    @apply text-2xl font-bold mb-4 text-gray-900 dark:text-white;
+    @apply text-2xl font-bold mb-4;
+    color: var(--color-text);
   }
 
   /* Best Practices List */
@@ -100,7 +185,8 @@
 
   /* Post Styling */
   .post {
-    @apply border-t border-gray-200 dark:border-gray-700 py-6;
+    @apply py-6;
+    border-top: 1px solid var(--color-gray-200);
   }
 
   .post-title {
@@ -109,7 +195,8 @@
 
   /* Getting Started Section */
   .getting-started {
-    @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-6 my-8;
+    @apply rounded-lg p-6 my-8;
+    background-color: var(--color-gray-100);
   }
 
   .getting-started-item {
@@ -118,12 +205,14 @@
 
   /* Need Help Section */
   .help-section {
-    @apply bg-primary-50 dark:bg-gray-800 rounded-lg p-6 my-8;
+    @apply rounded-lg p-6 my-8;
+    background-color: var(--color-gray-100);
   }
 
   /* Stay Updated Section */
   .stay-updated {
-    @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mt-8;
+    @apply rounded-lg p-6 mt-8;
+    background-color: var(--color-gray-100);
   }
 }
 
@@ -132,9 +221,9 @@
   top: 0;
   left: 0;
   height: 100vh;
-  overflow-y: auto; /* In case the menu content is longer than viewport */
+  overflow-y: auto;
 }
 
 .main-content {
-  margin-left: 200px; /* Add appropriate margin to prevent content overlap */
+  margin-left: 200px;
 }
