@@ -1,0 +1,16 @@
+{{ $colors := .Page.Params.color_palette }}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {{ range $colors }}
+    <div class="color-card">
+        <div class="color-swatch" style="background-color: {{ .hex }};"></div>
+        <div class="color-info">{{ .name }}</div>
+        <div class="color-value">{{ .hex }}</div>
+        {{ if .rgb }}
+        <div class="color-value">RGB: {{ .rgb }}</div>
+        {{ end }}
+        {{ if .pantone }}
+        <div class="color-value">PANTONE: {{ .pantone }}</div>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>

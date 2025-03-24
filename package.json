@@ -1,0 +1,25 @@
+{
+  "name": "brandguide",
+  "version": "1.0.0",
+  "description": "Brand Guidelines Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "npx tailwindcss -i ./themes/brandguide/assets/css/main.css -o ./themes/brandguide/assets/css/style.css",
+    "build:css": "tailwindcss -i ./themes/brandguide/assets/css/main.css -o ./themes/brandguide/assets/css/style.css",
+    "watch:css": "tailwindcss -i ./themes/brandguide/assets/css/main.css -o ./themes/brandguide/assets/css/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "postcss-cli": "^11.0.1"
+  }
+}

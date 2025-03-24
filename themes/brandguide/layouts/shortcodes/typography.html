@@ -1,0 +1,18 @@
+{{ $font := .Get "font" | default .Page.Params.typography.font }}
+{{ $size := .Get "size" | default "base" }}
+{{ $weight := .Get "weight" | default "normal" }}
+{{ $style := .Get "style" | default "normal" }}
+{{ $lineHeight := .Get "lineHeight" | default "normal" }}
+
+<div class="typography-example p-6 border border-gray-200 dark:border-gray-700 rounded-lg">
+    <div class="mb-4">
+        <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Font Family: {{ $font }}</div>
+        <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Size: {{ $size }}</div>
+        <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Weight: {{ $weight }}</div>
+        <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Style: {{ $style }}</div>
+        <div class="text-sm text-gray-500 dark:text-gray-400">Line Height: {{ $lineHeight }}</div>
+    </div>
+    <div class="preview" style="font-family: {{ $font }}; font-size: {{ $size }}; font-weight: {{ $weight }}; font-style: {{ $style }}; line-height: {{ $lineHeight }};">
+        {{ .Inner }}
+    </div>
+</div> 

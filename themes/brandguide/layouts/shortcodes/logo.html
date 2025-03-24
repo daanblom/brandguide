@@ -1,0 +1,21 @@
+{{ $image := .Get "image" | default .Page.Params.logo.image }}
+{{ $alt := .Get "alt" | default .Page.Params.logo.alt | default "Logo" }}
+{{ $width := .Get "width" | default .Page.Params.logo.width | default "200" }}
+{{ $height := .Get "height" | default .Page.Params.logo.height | default "auto" }}
+{{ $background := .Get "background" | default "transparent" }}
+
+<div class="logo-example p-6 border border-gray-200 dark:border-gray-700 rounded-lg">
+    <div class="mb-4">
+        <div class="text-sm text-gray-500 dark:text-gray-400">Width: {{ $width }}px</div>
+        <div class="text-sm text-gray-500 dark:text-gray-400">Height: {{ $height }}</div>
+        <div class="text-sm text-gray-500 dark:text-gray-400">Background: {{ $background }}</div>
+    </div>
+    <div class="preview" style="background-color: {{ $background }}; padding: 2rem; display: inline-block;">
+        <img src="{{ $image }}" alt="{{ $alt }}" width="{{ $width }}" height="{{ $height }}" class="max-w-full h-auto">
+    </div>
+    {{ if .Inner }}
+    <div class="mt-4 text-sm text-gray-600 dark:text-gray-300">
+        {{ .Inner }}
+    </div>
+    {{ end }}
+</div> 
